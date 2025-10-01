@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./css/Projects.css";
+import "./css/projects.css";
 import { PROJECTS } from "../data/Projects"; // your data file 
 
 export default function Projects() {
