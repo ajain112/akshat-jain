@@ -1,0 +1,196 @@
+:root{
+  /* assumes these are already defined globally in your app */
+  /* --text, --muted, --accent, --surface, --border, --shadow */
+}
+
+/* Wrapper */
+.proj{
+  padding: clamp(48px, 6vw, 72px) 0;
+}
+.proj__inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.proj__title{
+  margin: 0 0 12px;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 44px);
+  color: var(--text);
+}
+.proj__title .accent{ color: var(--accent); }
+.proj__hint{
+  color: var(--muted);
+  margin: 0 0 20px;
+}
+
+/* List */
+.proj__list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 16px;
+}
+
+/* Card (horizontal) */
+.proj__card{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: box-shadow .2s ease, border-color .2s ease, transform .12s ease;
+}
+.proj__card:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 14px 36px rgba(0,0,0,.45);
+  border-color: rgba(249,182,94,.32);
+}
+
+/* Header row is clickable */
+.proj__header{
+  all: unset;
+  display: grid;
+  grid-template-columns: 360px 1fr;        /* cover left, text right */
+  gap: 18px;
+  align-items: stretch;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* Cover image container */
+.proj__cover{
+  position: relative;
+  background: rgba(255,255,255,.04);
+  border-right: 1px solid var(--border);
+  min-height: 200px;
+}
+.proj__cover img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Right meta column */
+.proj__meta{
+  padding: 16px 18px;
+  display: grid;
+  align-content: center;
+  gap: 6px;
+}
+.proj__name{
+  margin: 0;
+  color: var(--text);
+  font-family: "Lato", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(18px, 2.2vw, 22px);
+}
+.proj__tagline{
+  color: var(--muted);
+  font-weight: 600;
+}
+.proj__summary{
+  margin: 6px 0 0;
+  color: var(--muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;      /* TWO-LINE clamp */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* CTA text */
+.proj__cta{
+  margin-top: 10px;
+}
+.proj__toggle{
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* Expanded body */
+.proj__body{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .35s ease;
+  border-top: 1px solid var(--border);
+}
+.proj__card.is-open .proj__body{
+  max-height: 1600px;  /* enough room for content; adjust if you have very long content */
+}
+
+.proj__grid{
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: clamp(14px, 2.6vw, 28px);
+  padding: clamp(16px, 2.4vw, 22px);
+}
+.proj__col h3{
+  margin: 0 0 6px;
+  color: var(--text);
+  font-size: clamp(16px, 2vw, 20px);
+}
+.proj__col p{
+  margin: 0 0 12px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.proj__bullets{
+  margin: 0 0 12px 18px;
+  color: var(--muted);
+}
+.proj__metrics{
+  margin: 0 0 12px 18px;
+  color: var(--muted);
+}
+.proj__links a{
+  color: var(--accent);
+  text-decoration: none;
+}
+.proj__links a:hover{
+  text-decoration: underline;
+}
+
+/* Gallery */
+.proj__gallery{
+  display: grid;
+  gap: 10px;
+}
+.proj__figure{
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.proj__figure img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.proj__figure figcaption{
+  font-size: .9rem;
+  color: var(--muted);
+  padding: 8px 10px;
+}
+
+/* Responsive */
+@media (max-width: 1000px){
+  .proj__header{
+    grid-template-columns: 300px 1fr;
+  }
+  .proj__grid{
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 680px){
+  .proj__header{
+    grid-template-columns: 1fr; /* cover on top */
+  }
+  .proj__cover{
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    min-height: 180px;
+  }
+}

@@ -1,0 +1,224 @@
+:root{
+  --text:#fff;
+  --muted:rgba(224,224,224,.85);
+  --accent:#F9B65E;
+  --border:rgba(42,42,42,.7);
+  --surface:rgba(0,0,0,.60);
+  --shadow:0 12px 32px rgba(0,0,0,.35);
+
+  /* Increased rail distance so the line/dot never sits in the card */
+  --rail-gap: clamp(56px, 7vw, 96px); /* was 28px */
+  --dot-size: 12px;
+}
+
+/* wrapper + title unchanged, but you can keep these */
+.tl{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(28px,5vw,48px) 24px;
+  position: relative;
+}
+.tl__heading{
+  margin: 0 0 16px;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: clamp(26px,3.6vw,40px);
+  color: var(--text);
+}
+
+/* HORIZONTAL (desktop) */
+.tl__list{
+  list-style: none;
+  display: flex;
+  align-items: center;             /* keep the “row” centered vs the rail */
+  gap: clamp(18px,3vw,36px);
+  margin: 0;
+
+  /* Give top and bottom breathing room so big cards never collide with the rail */
+  padding-top: calc(var(--rail-gap) + 10px);
+  padding-bottom: calc(var(--rail-gap) + 12px);
+
+  overflow-x: auto;
+  scrollbar-width: none;
+  position: relative;
+}
+.tl__list::-webkit-scrollbar{ height: 8px; }
+.tl__list::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,.18);
+  border-radius: 4px;
+}
+
+/* center rail */
+.tl__list::before{
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 50%;
+  height: 2px;
+  transform: translateY(-50%);
+  background: linear-gradient(to right, rgba(255,255,255,.16), rgba(255,255,255,.06));
+}
+
+/* each node */
+.tl__item{
+  position: relative;
+  flex: 0 0 min(480px, 88vw);      /* give a bit more width so tall text wraps better */
+  display: grid;
+  place-items: center;
+}
+
+/* dot on rail */
+.tl__dot{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: var(--dot-size);
+  height: var(--dot-size);
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(249,182,94,.18);
+  z-index: 2;
+}
+
+/* bubble/card – push it far from the rail so the dot never overlaps */
+.tl__bubble{
+  width: 100%;
+  max-width: 480px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+  color: var(--muted);
+
+  /* move above the rail */
+  transform: translateY(calc(-1 * var(--rail-gap)));
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.tl__item--bottom .tl__bubble{
+  /* move below the rail */
+  transform: translateY(var(--rail-gap));
+}
+
+/* optional “open” nudge on mobile/keyboard */
+.tl__bubble.is-open{
+  transform: translateY(calc(-1 * var(--rail-gap) - 6px));
+}
+.tl__item--bottom .tl__bubble.is-open{
+  transform: translateY(calc(var(--rail-gap) + 6px));
+}
+
+/* text bits */
+.tl__period{
+  display: inline-block;
+  font: 700 .82rem/1.2 "Lato",sans-serif;
+  color: #0e1116;
+  background: var(--accent);
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+.tl__title{
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font: 700 clamp(16px,2.1vw,20px) "Lato",system-ui,sans-serif;
+  text-align: left;
+  padding: 0;
+  margin: 2px 0 6px;
+  cursor: pointer;
+  transition: color .18s ease, text-shadow .18s ease;
+}
+.tl__title:hover,
+.tl__title:focus-visible{
+  color: var(--accent);
+  text-shadow: 0 0 18px rgba(249,182,94,.3);
+  outline: none;
+}
+.tl__org{ color: var(--muted); font-weight: 600; margin: 0 0 2px; }
+.tl__location{ margin: 0 0 8px; color: var(--muted); }
+.tl__card{ margin: 0; }
+.tl__details{ margin: 0; line-height: 1.7; }
+
+/* VERTICAL (≤ 900px) */
+@media (max-width: 900px){
+  .tl{ padding-inline: 16px; }
+
+  .tl__list{
+    overflow: visible;
+    gap: 16px;
+    padding: 0 0 0 24px;       /* vertical layout uses a left rail instead */
+    align-items: stretch;
+  }
+  .tl__list::before{ display: none; }
+
+  /* left vertical rail */
+  .tl__list::after{
+    content:"";
+    position: absolute; left: 12px; top: 0; bottom: 0; width: 2px;
+    background: linear-gradient(to bottom, rgba(255,255,255,.16), rgba(255,255,255,.06));
+  }
+
+  .tl__item{
+    flex: 1 1 auto;
+    display: block;
+  }
+  .tl__dot{
+    left: 12px;
+    top: 14px;
+    transform: none;
+  }
+  .tl__bubble,
+  .tl__item--bottom .tl__bubble{
+    transform: none;          /* no above/below shifts in vertical mode */
+    max-width: none;
+    margin-left: 28px;        /* offset from the left rail */
+  }
+}
+:root{
+  /* default used when railGap prop is not passed */
+  --rail-gap: clamp(56px, 7vw, 96px);
+}
+
+/* ---------- Stack cards on tablet & below ---------- */
+@media (max-width: 1024px) {
+  .tl {
+    padding-inline: 16px;
+  }
+
+  /* stop horizontal layout and rail */
+  .tl__list {
+    display: block;            /* was flex */
+    overflow: visible;         /* no horizontal scroll */
+    padding: 0;
+    margin: 0;
+    position: static;
+  }
+  .tl__list::before {          /* hide center rail */
+    display: none;
+  }
+
+  .tl__item {
+    display: block;
+    width: auto;
+    margin: 0 0 18px;          /* vertical spacing between cards */
+  }
+
+  /* hide dots on small screens */
+  .tl__dot {
+    display: none;
+  }
+
+  /* make card full width and remove offset transforms */
+  .tl__bubble {
+    max-width: none;
+    width: 100%;
+    transform: none !important;
+    margin: 0;
+  }
+  .tl__item--bottom .tl__bubble {
+    transform: none !important;
+  }
+}

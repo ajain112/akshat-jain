@@ -1,0 +1,172 @@
+:root{
+  --text:#FFFFFF;
+  --muted:rgba(224,224,224,.85);
+  --accent:#F9B65E;
+  --border:rgba(42,42,42,.70);
+  --surface: rgba(0,0,0,.60);
+}
+
+/* ===== Section wrapper ===== */
+.about{
+  padding: clamp(48px, 6vw, 72px) 0;
+}
+.about--page{ /* a little more room on the full page */
+  padding: clamp(64px, 8vw, 96px) 0;
+}
+
+/* ===== Grid ===== */
+.about__inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  gap: clamp(24px, 4vw, 48px);
+  grid-template-columns: 1fr;             /* mobile */
+}
+@media (min-width: 1000px){
+  .about__inner{ grid-template-columns: 1.1fr .9fr; }  /* desktop split */
+}
+
+/* ===== Left column (text) ===== */
+.about__text{
+  max-width: 760px;
+  color: var(--muted);
+  font-family: "Lato", sans-serif;
+  line-height: 1.7;
+}
+.about__heading{
+  margin: 0 0 18px;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 44px);
+  color: var(--text);
+}
+.about__heading .accent{ color: var(--accent); }
+
+.about__para{ margin: 0 0 18px; }
+
+.about__block{ margin-top: 22px; }
+.about__block h3{
+  margin: 0 0 6px;
+  color: var(--text);
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: clamp(18px, 2.2vw, 22px);
+}
+.about__block p{ margin: 0; }
+
+/* Optional list styling on /about page */
+.about__list{
+  list-style: none;
+  padding: 0; margin: 8px 0 0;
+  display: grid; gap: 6px;
+}
+.about__list li span{
+  color: var(--accent);
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+/* ===== CTA (scoped so it doesn't affect Hero buttons) ===== */
+.about__cta{ margin-top: 22px; }
+
+.about .btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding: 10px 16px;
+  border-radius: 10px;
+  text-decoration:none;
+  font-family:"Lato",sans-serif; font-weight:600;
+  border: 2px solid var(--accent);
+  transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.about .btn--ghost{
+  color: var(--text);
+  background: transparent;
+}
+.about .btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 3px rgba(249,182,94,.25);
+}
+
+/* ===== Right column (media card) ===== */
+.about__media{ display: grid; place-items: start; }
+
+.about__card{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 10px;
+  overflow: hidden;                                 /* keep scaled image clipped */
+  box-shadow: 0 10px 32px rgba(0,0,0,.35);
+  transition: box-shadow .35s ease, transform .35s ease;
+}
+.about__card--lg{ padding: 12px; border-radius: 18px; }
+
+.about__card img{
+  display:block;
+  width: min(560px, 100%);
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+
+  /* animation essentials */
+  transform: translateZ(0);
+  transition: transform .35s ease, filter .35s ease;
+  will-change: transform;
+}
+
+/* Hover / focus lift effect */
+.about__card:hover img,
+.about__card:focus-within img{
+  transform: scale(1.03) translateY(-4px);
+}
+.about__card:hover,
+.about__card:focus-within{
+  box-shadow: 0 14px 38px rgba(0,0,0,.5);
+  /* Optional subtle accent glow – uncomment if desired */
+  /* box-shadow:
+      0 14px 38px rgba(0,0,0,.5),
+      0 0 12px rgba(249,182,94,.18); */
+}
+
+/* ===== Responsive stack ===== */
+@media (max-width: 999px){
+  .about__inner{ grid-template-columns: 1fr; }
+  .about__media{ place-items: center; }
+}
+
+/* ===== Slightly tighter on small phones ===== */
+@media (max-width: 599px){
+  .about__text{ line-height: 1.65; }
+  .about__card img{ width: min(480px, 100%); }
+}
+
+/* ===== Reduced motion support ===== */
+@media (prefers-reduced-motion: reduce){
+  .about__card,
+  .about__card img{
+    transition: none !important;
+    transform: none !important;
+  }
+}
+@media (min-width: 840px){
+  .about__inner{
+    grid-template-columns: 1.05fr 0.95fr;   /* balanced split */
+    padding-inline: clamp(24px, 4vw, 32px);
+  }
+  .about__media{ place-items: center; }      /* vertically align the card nicely */
+  .about__card{ box-shadow: 0 12px 34px rgba(0,0,0,.38); }
+}
+
+/* 2) Still stacked but tablet-ish (portrait 600–839px) */
+@media (min-width: 600px) and (max-width: 839px){
+  .about__inner{ padding-inline: clamp(20px, 4vw, 28px); }
+  .about__media{ place-items: center; }
+  .about__card{
+    max-width: 520px;                         /* slightly narrower card */
+    box-shadow: 0 10px 28px rgba(0,0,0,.32);  /* lighter shadow so it feels less heavy */
+  }
+  .about__card img{
+    width: min(500px, 100%);                  /* rein-in image size */
+  }
+}

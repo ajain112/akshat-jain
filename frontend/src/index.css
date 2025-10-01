@@ -1,0 +1,34 @@
+:root{
+  --bg: #30333B;         /* page background */
+  --text: #FFFFFF;
+  --muted: rgba(224,224,224,0.85);
+  --accent: #F9B65E;
+}
+
+*{ box-sizing: border-box; }
+html,body,#root{ height: 100%; }
+html,body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Lato", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+/* Basic container helpers */
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.section{
+  padding: 56px 0;
+}
+h1,h2,h3,.heading{
+  font-family: "Playfair Display", serif;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

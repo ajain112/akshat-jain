@@ -1,0 +1,194 @@
+/* =============================
+   Hero.css (final)
+   Fonts: Playfair Display (headings), Lato (body)
+   Palette: integrates with your global variables
+============================= */
+:root{
+  --text: #ffffff;
+  --muted: rgba(224,224,224,0.85);
+  --accent: #f9b65e;
+}
+
+/* ===== Section & base layout ===== */
+.hero{
+  min-height: clamp(520px, 78vh, 860px);
+  display: grid;
+  place-items: center;
+  padding: clamp(48px, 6vw, 72px) 0;
+}
+
+.hero__inner{
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 24px;
+  display: grid;
+  align-items: center;
+  gap: clamp(20px, 4vw, 48px);
+  grid-template-columns: 1fr;         /* mobile default: stacked */
+}
+
+@media (min-width: 900px){
+  .hero__inner{ grid-template-columns: 1.05fr 0.95fr; }  /* balanced desktop */
+}
+@media (min-width: 1200px){
+  .hero__inner{ grid-template-columns: 1fr 1fr; }        /* large screens */
+}
+
+/* ===== Left: text ===== */
+.hero__text{
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* centers everything horizontally */
+  text-align: center;
+  gap: 12px;               /* equal vertical spacing between items */
+}
+
+/* Remove individual bottom margins since gap handles spacing */
+.hero__kicker,
+.hero__title,
+.hero__subtitle{
+  margin: 0;
+}
+
+.hero__kicker{
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  font-size: clamp(18px, 2.2vw, 28px);
+  color: var(--muted);
+  letter-spacing: .2px;
+}
+
+.hero__title{
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: clamp(48px, 7.5vw, 88px);
+  line-height: 1.05;
+  color: var(--accent);
+}
+
+.hero__subtitle{
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: clamp(16px, 2vw, 24px);
+  color: var(--text);
+  opacity: .95;
+}
+
+/* Keep CTAs centered and evenly spaced */
+.hero__cta{
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 8px;   /* small extra gap from subtitle */
+}
+
+.btn{
+  --ring: 0 0 0 3px rgba(249,182,94,.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Lato", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 12px 22px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: transform .12s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.btn--primary{
+  background: #ffffff;
+  color: #000;
+  border: 2px solid var(--accent);
+  box-shadow: 0 10px 24px rgba(0,0,0,.25);
+}
+.btn--primary:hover{ transform: translateY(-1px); box-shadow: var(--ring); }
+
+.btn--ghost{
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid var(--accent);
+}
+.btn--ghost:hover{ transform: translateY(-1px); box-shadow: var(--ring); }
+
+/* ===== Right: illustration ===== */
+.hero__imageWrap{
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+/* soft circular backdrop for balance */
+.hero__imageWrap::after{
+  content:"";
+  position: absolute;
+  inset: -15% -10% -10% -10%;
+  border-radius: 50%;
+  background:
+    radial-gradient(closest-side,
+      rgba(0,0,0,.35) 0%,
+      rgba(0,0,0,.25) 40%,
+      transparent 70%);
+  filter: blur(2px);
+  z-index: 0;
+}
+
+.hero__image{
+  position: relative;
+  z-index: 1;
+  width: clamp(380px, 34vw, 680px);    /* tuned so it won’t dominate */
+  max-width: 95%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,.35));
+}
+
+/* ===== Mobile & small tablet alignment ===== */
+@media (max-width: 899px){
+  .hero{
+    min-height: auto;
+    padding: 28px 0 40px;
+  }
+  .hero__inner{
+    grid-template-columns: 1fr;
+    justify-items: center;       /* center both blocks */
+    gap: 24px;
+  }
+  .hero__text{
+    text-align: center;
+    margin: 0 auto;
+    max-width: 560px;
+  }
+  .hero__kicker{ font-size: 18px; }
+  .hero__title{  font-size: clamp(34px, 9vw, 48px); }
+  .hero__subtitle{ font-size: 15px; }
+  .hero__cta{ justify-content: center; }
+
+  .hero__image{
+    width: clamp(280px, 58vw, 440px);
+    max-width: 88%;
+    margin: 0 auto;
+  }
+  .hero__imageWrap::after{
+    inset: -6% -8% -10% -8%;
+    opacity: .75;
+  }
+}
+
+/* ===== Small-tablet specific (600–1024px) to prevent clipping ===== */
+@media (min-width: 600px) and (max-width: 1024px){
+  .hero__image{ width: clamp(320px, 52vw, 540px); }
+}
+
+/* ===== Short viewport safety ===== */
+@media (max-height: 720px){
+  .hero__image{
+    max-height: 48vh;
+    width: auto;
+  }
+}
+
+/* If you use a floating navbar, keep a spacer in layout (in Navbar.css) */
