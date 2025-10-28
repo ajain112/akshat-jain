@@ -7,6 +7,7 @@ import Footer from "./components/Footer.jsx";
 import ScrollToHash from "./components/ScrollToHash.jsx";
 import About from "./pages/AboutPage.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </DevErrorBoundary>
       <Footer />
