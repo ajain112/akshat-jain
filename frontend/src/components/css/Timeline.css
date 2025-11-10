@@ -39,7 +39,7 @@
   padding-bottom: calc(var(--rail-gap) + 12px);
 
   overflow-x: auto;
-  scrollbar-width: none;
+  scrollbar-width: 1px;
   position: relative;
 }
 .tl__list::-webkit-scrollbar{ height: 8px; }
