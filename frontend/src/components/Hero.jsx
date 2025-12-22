@@ -1,6 +1,6 @@
 import React from "react";
 import "./css/Hero.css";
-import heroImg from "../assets/hero.png"; // <-- replace with your image path
+import heroImg from "../assets/hero.png"; 
 import { Link } from "react-router-dom";
 
 const Hero = () => {
@@ -17,7 +17,7 @@ const Hero = () => {
             <a href="#contact" className="btn btn--primary" aria-label="Contact Me">
               Contact Me
             </a>
-            <Link to="https://drive.google.com/file/d/1BHzg7n3VV22EifwRFiooresBTDzq4jw0/view?usp=drive_link" target="none" className="btn btn--ghost" aria-label="Know More">
+            <Link to="https://drive.google.com/file/d/1atQ02Vl3VWHS-6TnWehO1xsocQcJafB_/view?usp=sharing" target="none" className="btn btn--ghost" aria-label="Know More">
               Download Resume
             </Link>
           </div>
