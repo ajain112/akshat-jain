@@ -6,8 +6,9 @@ import Timeline from "./Timeline";
 const internships = [
   {
     id: "w1",
-    period: "Oct 2024 – Feb 2025",
-    title: "Product Manager",
+    startDate: "2024-10-01", // Oct 2024
+    period: "Oct 2024 – Current",
+    title: "Product Designer and Developer",
     org: "Young Talent Development Foundation",
     location: "Bothell, WA, USA",
     details: [
@@ -18,8 +19,9 @@ const internships = [
   },
   {
     id: "w2",
-    period: "Feb 2023 – Apr 2023",
-    title: "Software Designer and Developer Intern",
+    startDate: "2023-01-01", // Jan 2023
+    period: "Jan 2023 – Jul 2023",
+    title: "Software Designer and Developer",
     org: "Allsoft Technologies",
     location: "Indore, MP, India",
     details: [
@@ -30,6 +32,7 @@ const internships = [
   },
   {
     id: "w3",
+    startDate: "2020-06-01", // Jun 2020
     period: "Jun 2020 – Sept 2020",
     title: "Software Designer and Developer Intern",
     org: "Techshala",
@@ -40,14 +43,30 @@ const internships = [
       "Collaborated with engineers to document and hand off design specs, reducing back-and-forth iterations by 20%.",
     ],
   },
+  {
+    id: "w4",
+    startDate: "2025-11-01", // Nov 2025
+    period: "Nov 2025 – Current",
+    title: "Product Designer and Developer",
+    org: "Ayush Herbs, Inc.",
+    location: "Redmond, WA, USA",
+    details: [
+      "Increased online sales by 60% YoY by optimizing UI/UX, information architecture, visual hierarchy, and conversion-focused user flows across the Ayush Herbs website.",
+      "Led end-to-end redesign and greenfield build of two websites, delivering scalable, responsive interfaces through UX research, Figma design systems, and production-ready implementation",
+      "Improved SEO performance and page speed by implementing SEO-compliant UI patterns, structured content, and reusable components, driving higher organic visibility and faster load times.",
+    ],
+  },
 ];
 
 export default function WorkExp() {
+  const sortedInternships = [...internships].sort(
+    (a, b) => new Date(b.startDate) - new Date(a.startDate)
+  );
+
   return (
     <Timeline
       heading="Work Experience"
-      items={internships}
-      railGap="200px"
+      items={sortedInternships}
     />
   );
 }

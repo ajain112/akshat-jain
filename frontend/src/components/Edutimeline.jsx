@@ -22,6 +22,6 @@ const education = [
 
 export default function EducationTimeline() {
   return (
-    <Timeline heading="Education" items={education} />
+      <Timeline heading="Education" items={education} />
   );
 }
