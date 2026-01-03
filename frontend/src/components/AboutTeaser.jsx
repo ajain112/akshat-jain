@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./css/AboutTeaser.css";
-import portrait from "../assets/about-photo.jpg"; // <-- update path to your image
+import portrait from "../assets/about-photo.webp"; // <-- update path to your image
 
 export default function AboutTeaser() {
   return (

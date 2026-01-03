@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./css/AboutPage.css";
 import Edutimeline from "../components/Edutimeline.jsx";
 import WorkExp from "../components/WorkExp.jsx";
-import abthero from "../assets/about-hero.jpg";
+import abthero from "../assets/about-hero.webp";
 
 export default function About() {
   return (
