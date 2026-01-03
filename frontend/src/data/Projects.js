@@ -1,12 +1,12 @@
-import coverTradezen from '../assets/Projects/tradezen/cover.png';
-import coverHive from '../assets/Projects/hive/cover.png'; // or .jpg
-import coverAlpha from '../assets/Projects/alpha/cover.png'; 
-import alpha1 from '../assets/Projects/alpha/alpha1.png';
-import alpha2 from '../assets/Projects/alpha/alpha2.png';
-import trade1 from '../assets/Projects/tradezen/trade1.png';
-import trade2 from '../assets/Projects/tradezen/trade2.png';
-import hive1 from '../assets/Projects/hive/hive1.png';
-import hive2 from '../assets/Projects/hive/hive2.png';
+import coverTradezen from '../assets/Projects/tradezen/cover.webp'; 
+import coverHive from '../assets/Projects/hive/cover.webp'; // or .jpg
+import coverAlpha from '../assets/Projects/alpha/cover.webp'; 
+import alpha1 from '../assets/Projects/alpha/alpha1.webp';
+import alpha2 from '../assets/Projects/alpha/alpha2.webp';
+import trade1 from '../assets/Projects/tradezen/trade1.webp';
+import trade2 from '../assets/Projects/tradezen/trade2.webp';
+import hive1 from '../assets/Projects/hive/hive1.webp';
+import hive2 from '../assets/Projects/hive/hive2.webp';
 
 export const PROJECTS = [
   // --- TRADEZEN ------------------------------------------------------------
