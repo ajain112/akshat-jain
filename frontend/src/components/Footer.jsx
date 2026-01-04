@@ -56,7 +56,7 @@ export default function Footer() {
               >
                 <img
                   src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg"
-                  alt=""
+                  alt="linkedin logo"
                 />
               </a>
             </li>
@@ -69,7 +69,7 @@ export default function Footer() {
               >
                 <img
                   src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg"
-                  alt=""
+                  alt="Github logo"
                 />
               </a>
             </li>
@@ -82,7 +82,7 @@ export default function Footer() {
               >
                 <img
                   src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/dribbble.svg"
-                  alt=""
+                  alt="Dribble logo"
                 />
               </a>
             </li>
@@ -95,7 +95,7 @@ export default function Footer() {
               >
                 <img
                   src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/behance.svg"
-                  alt=""
+                  alt="Behnace logo"
                 />
               </a>
             </li>
@@ -107,7 +107,7 @@ export default function Footer() {
               >
                 <img
                   src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/gmail.svg"
-                  alt=""
+                  alt="Gmail logo"
                 />
               </a>
             </li>

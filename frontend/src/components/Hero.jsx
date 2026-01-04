@@ -25,7 +25,7 @@ const Hero = () => {
 
         {/* Right: image */}
         <div className="hero__imageWrap" aria-hidden="true">
-          <img src={heroImg} className="hero__image" alt="" />
+          <img src={heroImg} className="hero__image" alt="This is the hero image of the website which have similar characteristic as Akshat Jain" />
         </div>
       </div>
     </section>

@@ -110,7 +110,7 @@ function RemoteIcon({ url, label, fallback = "🧰" }) {
   return (
     <img
       src={url}
-      alt=""
+      alt="logo for the skills or tools"
       loading="lazy"
       decoding="async"
       referrerPolicy="no-referrer"
