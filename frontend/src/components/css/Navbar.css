@@ -170,10 +170,6 @@
   color: #000; outline: none;
 }
 
-/* ===== Spacer under floating nav ===== */
-.nav__spacer { height: 96px; }
-@media (min-width: 900px) { .nav__spacer { height: 108px; } }
-
 /* ===== Reduced motion ===== */
 @media (prefers-reduced-motion: reduce) {
   .nav, .nav__mobile, .nav__toggle, .nav__link, .skip-link { transition: none !important; }
