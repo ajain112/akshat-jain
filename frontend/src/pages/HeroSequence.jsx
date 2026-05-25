@@ -10,15 +10,15 @@ gsap.registerPlugin(ScrollTrigger);
 const frameModules = import.meta.glob(
   "../assets/hero-scroll/*.{jpg,JPG,jpeg,JPEG,png,PNG}",
   {
-    eager: true,
+   
     query: "?url",
     import: "default",
   }
 );
 
-const frameUrls = Object.entries(frameModules)
-  .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
-  .map(([, url]) => url);
+const frameUrls = Object.keys(frameModules).sort((a, b) =>
+  a.localeCompare(b, undefined, { numeric: true })
+);
 
 const frameCount = frameUrls.length;
 const scrollLength = 3600;
@@ -215,24 +215,30 @@ export default function HeroSequence() {
       };
 
       const preloadFrames = () => {
-        frameUrls.forEach((src, index) => {
-          const image = new Image();
-          image.src = src;
-          image.decoding = "async";
+  frameUrls.forEach(async (key, index) => {
+    try {
+      const src = await frameModules[key]();
 
-          image.onload = () => {
-            if (index === 0) {
-              renderFrame(0);
-            }
-          };
+      const image = new Image();
+      image.src = src;
+      image.decoding = "async";
 
-          image.onerror = () => {
-            console.warn(`Missing or broken hero frame: ${src}`);
-          };
-
-          imagesRef.current[index] = image;
-        });
+      image.onload = () => {
+        if (index === 0) {
+          renderFrame(0);
+        }
       };
+
+      image.onerror = () => {
+        console.warn(`Missing or broken hero frame: ${src}`);
+      };
+
+      imagesRef.current[index] = image;
+    } catch (error) {
+      console.warn(`Could not load hero frame: ${key}`, error);
+    }
+  });
+};
 
       setCanvasSize();
       preloadFrames();
