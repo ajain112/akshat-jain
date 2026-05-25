@@ -35,8 +35,8 @@ export const PROJECTS = [
 
     // Put actual images under /public/images/... or import like cover
     images: [
-      { src: trade1, alt: 'Guided, stepwise account-opening flow' },
-      { src: trade2, alt: 'Document checklist and KYC capture' }
+      { src: trade1, alt: 'Guided, stepwise account-opening flow', load: 'lazy', decoding: 'async' },
+      { src: trade2, alt: 'Document checklist and KYC capture', load: 'lazy', decoding: 'async' }
     ],
 
     metrics: {
@@ -80,8 +80,8 @@ export const PROJECTS = [
 
     // Add at least two visuals for the expanded view
     images: [
-      { src: hive1, alt: 'Information architecture and navigation model' },
-      { src: hive2, alt: 'High-fidelity community feed and interactions' }
+      { src: hive1, alt: 'Information architecture and navigation model', load: 'lazy', decoding: 'async' },
+      { src: hive2, alt: 'High-fidelity community feed and interactions', load: 'lazy', decoding: 'async' }
     ],
 
     metrics: {
@@ -119,8 +119,8 @@ export const PROJECTS = [
   ],
 
   images: [
-    { src: alpha1, alt: "showcasing featured sneakers" },
-    { src: alpha2, alt: "showcasing women sneaker section" },
+    { src: alpha1, alt: "showcasing featured sneakers", load: "lazy", decoding: "async" },
+    { src: alpha2, alt: "showcasing women sneaker section", load: "lazy", decoding: "async" },
   ],
 
   metrics: {
