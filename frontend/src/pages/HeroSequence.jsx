@@ -66,6 +66,7 @@ export default function HeroSequence() {
   const imagesRef = useRef([]);
   const rafRef = useRef(null);
   const activeBeatRef = useRef(0);
+  const currentFrameRef = useRef(-1);
 
   useGSAP(
     () => {
@@ -124,17 +125,20 @@ export default function HeroSequence() {
       };
 
       const renderFrame = (progress) => {
-        const frameIndex = Math.min(
-          frameCount - 1,
-          Math.max(0, Math.round(progress * (frameCount - 1)))
-        );
+      const frameIndex = Math.min(
+        frameCount - 1,
+        Math.max(0, Math.round(progress * (frameCount - 1)))
+      );
 
-        const image = imagesRef.current[frameIndex];
+      const image = imagesRef.current[frameIndex];
 
-        if (!image || !image.complete) return;
+      if (!image || !image.complete) return;
 
-        drawImageCover(image);
-      };
+      if (frameIndex === currentFrameRef.current) return;
+      currentFrameRef.current = frameIndex;
+
+      drawImageCover(image);
+    };
 
       const requestFrameRender = (progress) => {
         if (rafRef.current) return;
@@ -261,7 +265,7 @@ export default function HeroSequence() {
         start: "top top",
         end: `+=${scrollLength}`,
         pin: true,
-        scrub: 0.75,
+        scrub: 1.5,
         anticipatePin: 1,
         invalidateOnRefresh: true,
 
@@ -270,8 +274,10 @@ export default function HeroSequence() {
 
           requestFrameRender(progress);
 
-          const nextBeat = getBeatIndex(progress);
+         const nextBeat = getBeatIndex(progress);
+        if (nextBeat !== activeBeatRef.current) {
           setStoryText(nextBeat, true);
+        }
 
           gsap.set(canvas, {
             scale: gsap.utils.interpolate(1.035, 1.075, progress),
