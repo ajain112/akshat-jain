@@ -131,6 +131,24 @@
   filter: drop-shadow(0 0 2px rgba(0,0,0,.4)); /* keep dark logos visible */
 }
 
+.skills__img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  display: block;
+}
+
+.skills__fallback {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+}
+
 .skills__item:hover .skills__icon,
 .skills__item:focus-within .skills__icon{
   transform: translateY(-4px);
