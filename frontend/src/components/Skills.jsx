@@ -352,7 +352,7 @@ export default function SkillsCarousel({
               aria-labelledby={`${sec.id}-tab`}
               className="skills__panel"
               tabIndex={active === idx ? 0 : -1}
-              hidden={active !== idx}
+              aria-hidden={active !== idx}
             >
               <ul className="skills__grid">
                 {sec.items.map((skill) => (
