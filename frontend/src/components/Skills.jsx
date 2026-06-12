@@ -45,7 +45,11 @@ const SKILLS = [
       { name: "Illustrator", url: ICONS.illustrator },
       { name: "Photoshop", url: ICONS.photoshop },
       { name: "Canva", url: ICONS.canva },
-      { name: "Notion", url: ICONS.notion },
+      { name: "Adobe XD", url: ICONS.adobexd },
+      { name: "Usability Testing", url: ICONS.usabilitytesting },
+      { name: "Prototyping", url: ICONS.prototyping },
+      
+
     ],
   },
   {
@@ -57,6 +61,22 @@ const SKILLS = [
       { name: "JavaScript", url: ICONS.javascript },
       { name: "React", url: ICONS.react },
       { name: "Redux", url: ICONS.redux },
+      { name: "Next.js", url: ICONS.nextjs },
+      { name: "Tailwind CSS", url: ICONS.tailwindcss },
+      { name: "Material UI", url: ICONS.materialui },
+      { name: "Wordpress", url: ICONS.wordpress },
+      { name: "Bootstrap", url: ICONS.bootstrap },
+    ],
+  },
+  {
+    id: "ai",
+    label: "AI and Product",
+    items: [
+      { name: "Loveable", url: ICONS.loveable },
+      { name: "ChatGPT", url: ICONS.chatgpt },
+      { name: "Claude", url: ICONS.claude },
+      { name: "Google Labs", url: ICONS.googlelabs },
+      { name: "Prompt Engineering", url: ICONS.promptengineering },
     ],
   },
   {
@@ -64,7 +84,6 @@ const SKILLS = [
     label: "Programming",
     items: [
       { name: "C++", url: ICONS.cplusplus },
-      { name: "Java", url: ICONS.java },
       { name: "Python", url: ICONS.python },
       { name: "TypeScript", url: ICONS.typescript },
     ],
