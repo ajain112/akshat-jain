@@ -122,8 +122,6 @@ const SKILLS = [
       { name: "Photoshop" },
       { name: "Canva" },
       { name: "Adobe XD" },
-      { name: "Framer" },
-      { name: "Miro" },
       { name: "Prototyping", fallback: "⚡" },
       { name: "UX Research", fallback: "🔍" },
       { name: "Usability Testing", fallback: "🧪" },
@@ -168,9 +166,6 @@ const SKILLS = [
     items: [
       { name: "C++" },
       { name: "Python" },
-      { name: "JavaScript" },
-      { name: "TypeScript" },
-      { name: "SQL", fallback: "SQL" },
     ],
   },
   {
@@ -182,8 +177,6 @@ const SKILLS = [
       { name: "NumPy" },
       { name: "Excel" },
       { name: "Google Analytics", fallback: "GA" },
-      { name: "Search Console", fallback: "SC" },
-      { name: "Postman" },
     ],
   },
   {
@@ -208,9 +201,7 @@ const SKILLS = [
       { name: "Linux" },
       { name: "Vercel" },
       { name: "Netlify" },
-      { name: "npm" },
       { name: "VS Code", iconKey: "vscode" },
-      { name: "Chrome DevTools", fallback: "⌘" },
     ],
   },
 ];
