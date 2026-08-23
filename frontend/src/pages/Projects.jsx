@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./css/projects.css";
 import { PROJECTS } from "../data/Projects"; // your data file 
+import SEO from "../components/SEO";
 
 export default function Projects() {
   const [openId, setOpenId] = useState(null);
@@ -9,6 +10,12 @@ export default function Projects() {
 
   return (
     <section className="proj">
+      <SEO
+        title="Product Design & Product Management Projects | Akshat Jain"
+        description="Explore product design, UX, product strategy, e-commerce, B2B, design engineering, and digital product projects by Akshat Jain."
+        canonical="https://ajain.live/projects"
+      />
+
       <div className="proj__inner">
         <h1 className="proj__title">
           Projects <span className="accent">&amp; Case Studies</span>

@@ -4,10 +4,16 @@ import "./css/AboutPage.css";
 import Edutimeline from "../components/Edutimeline.jsx";
 import WorkExp from "../components/WorkExp.jsx";
 import abthero from "../assets/about-hero.webp";
+import SEO from "../components/SEO";
 
 export default function About() {
   return (
     <main className="aboutpg" aria-labelledby="aboutpg-title">
+      <SEO
+        title="Akshat Jain | About"
+        description="Learn more about Akshat Jain, his background, and his journey in product design and engineering."
+        canonical="https://ajain.live/about"
+      />
       <section className="aboutpg__hero">
         <div className="aboutpg__inner">
           {/* Image */}
