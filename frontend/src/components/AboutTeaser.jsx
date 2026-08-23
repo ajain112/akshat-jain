@@ -13,10 +13,10 @@ export default function AboutTeaser() {
           </h2>
 
           <p className="about__para">
-            I am Akshat Jain, a UX/UI designer and software developer passionate about
-            creating digital experiences that are intuitive, accessible, and visually
-            engaging. My work combines creative problem-solving with a strong technical
-            foundation to deliver products people love to use.
+            I’m Akshat Jain, a multidisciplinary product professional working
+            across product design, product strategy, design engineering, and AI.
+            I turn complex ideas into clear, useful digital products by combining
+            user-centered thinking, business goals, and hands-on technical execution.
           </p>
 
           <div className="about__block">

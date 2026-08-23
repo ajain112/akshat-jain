@@ -26,7 +26,7 @@ const scrollLength = 3600;
 const storyBeats = [
   {
     progress: 0,
-    eyebrow: "Product Designer · Software Developer · AI Builder",
+    eyebrow: "Product Designer · Product Manager · AI Builder",
     title: "I build work I’m proud to put my name on",
     description:
       "Every project is a chance to turn intention, taste, and execution into something real.",
